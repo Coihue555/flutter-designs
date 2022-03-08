@@ -7,13 +7,45 @@ class ScrollScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          Background(),
-          const MainContent(),
-        ],
-        )
+      backgroundColor: const Color(0xff30BAD6),
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            stops: [0.5,0.5],
+            colors: [
+
+            Color(0xff5EE8C5),
+            Color(0xff30BAD6)
+            ]
+          )
+        ),
+        child: PageView(
+          physics: const BouncingScrollPhysics(),
+          scrollDirection: Axis.vertical,
+          children: [
+            Screen1(),
+            Screen2()
+            
+          ],
+        ),
+      )
     );
+  }
+}
+
+class Screen1 extends StatelessWidget {
+  
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Background(),
+        const MainContent(),
+      ],
+      );
   }
 }
 
@@ -54,6 +86,30 @@ class Background extends StatelessWidget {
        const Image(
           image: AssetImage('assets/scroll-1.png')
         )
+    );
+  }
+}
+
+class Screen2 extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      
+      color: const Color(0xff30BAD6),
+      child: Center(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 40),
+          child: TextButton(
+            onPressed: (){},
+            child: const Text('Bienvenido', style: TextStyle(color: Colors.white, fontSize: 30),),
+            style: TextButton.styleFrom(
+              backgroundColor: const Color(0xff0098FA),
+              shape: const StadiumBorder()
+            ),
+          ),
+        )
+      ),
     );
   }
 }
