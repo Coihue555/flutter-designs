@@ -7,7 +7,7 @@ class CardTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Table(
-      children: [
+      children: const [
         TableRow(
           children: [
             _SingleCard(icon: Icons.dashboard, color: Colors.orange, text: 'General',),
